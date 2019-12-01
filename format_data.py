@@ -42,7 +42,7 @@ def split_daily_pre(lines,out_dir):
         f = open(out_dir+date+'.dat','w')
         for i in date_dic[date]:
             sta, lon, lat, height, val = i
-            text = ' {} {}\t{}\t{}\t{}\n'.format(sta, '%0.2f'%lon, '%0.2f'%lon, '%0.1f'%height, val)
+            text = ' {:>5d} {:>7.4f} {:>6.4f}{:>8.2f}{:>8.2f}\n'.format(int(sta), lon, lat, height, val)
             f.write(text)
         f.close()
     pass
@@ -86,18 +86,16 @@ def split_daily_tmp(lines,out_dir):
         f = open(out_dir+date+'.dat','w')
         for i in date_dic[date]:
             sta, lon, lat, height, val = i
-            text = ' {} {}\t{}\t{}\t{}\n'.format(sta, '%0.2f'%lon, '%0.2f'%lon, '%0.1f'%height, val)
+            text = ' {:>5d} {:>7.4f} {:>6.4f}{:>8.2f}{:>8.2f}\n'.format(int(sta), lon, lat, height, val)
             f.write(text)
         f.close()
     pass
 
 
 
-
-
-
 def main():
-    format_tmp()
+    # format_tmp()
+    # format_pre()
     pass
 
 
