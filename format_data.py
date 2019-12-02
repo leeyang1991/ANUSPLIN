@@ -3,12 +3,19 @@
 import os
 from tqdm import tqdm
 
-this_root = r'D:/ANU_interpolation/'
+this_root = r'C:\Users\ly\Desktop\to_server\to_server\\'
+
+
+def mkdir(fdir):
+    if not os.path.isdir(fdir):
+        os.makedirs(fdir)
+
 
 
 def format_pre():
-    fdir = this_root+'data/meteo/PRE18/'
+    fdir = this_root+'meteo/PRE18/'
     out_dir = this_root+'data/daily/pre/'
+    mkdir(out_dir)
     for f in tqdm(os.listdir(fdir)):
         fr = open(fdir+f,'r')
         lines = fr.readlines()
@@ -51,9 +58,12 @@ def split_daily_pre(lines,out_dir):
 
 
 def format_tmp():
-    fdir = this_root+'data/meteo/TEM18/'
+    fdir = this_root+'meteo/TEM18/'
     out_dir = this_root+'data/daily/tmp/'
+    mkdir(out_dir)
     for f in tqdm(os.listdir(fdir)):
+        if not '201103.TXT' in f:
+            continue
         fr = open(fdir+f,'r')
         lines = fr.readlines()
         split_daily_pre(lines,out_dir)
@@ -94,7 +104,7 @@ def split_daily_tmp(lines,out_dir):
 
 
 def main():
-    # format_tmp()
+    format_tmp()
     # format_pre()
     pass
 

@@ -6,7 +6,7 @@ import multiprocessing
 from multiprocessing.pool import ThreadPool as TPool
 import copy_reg
 import types
-this_root = r'D:/ANU_interpolation/'
+this_root = r'C:\Users\ly\Desktop\to_server\to_server\\'
 
 
 
@@ -127,15 +127,18 @@ def kernel_run(params):
 
 
 def run():
-    mode = 'pre'
+    mode = 'tmp'
     datelist = []
-    fdir = this_root+'/data/daily/pre/'
+    fdir = this_root+'/data/daily/{}/'.format(mode)
     for f in os.listdir(fdir):
         datelist.append(f.split('.')[0])
     params = []
     for d in datelist:
         params.append([mode, d])
-    MUTIPROCESS(kernel_run,params).run()
+    for p in params:
+        print(p)
+        kernel_run(p)
+    # MUTIPROCESS(kernel_run,params).run()
 
 
 def main():
