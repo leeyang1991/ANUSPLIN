@@ -1,9 +1,9 @@
 # ANUSPLIN
 use ANUSplin software to interpolate meteorology indices
 
-### 1 格式化气象数据
+#### 1 Format data
 
-### 2 生成配置文件
+#### 2 Generate configuration files
 1.conf selnot
 
 2.conf splinb
@@ -11,4 +11,4 @@ use ANUSplin software to interpolate meteorology indices
 3.conf lapgrd
 
 
-### 3 并行计算
+#### 3 Parallel run
