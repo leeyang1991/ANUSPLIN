@@ -1,5 +1,5 @@
 # ANUSPLIN
-use ANUSplin software to interpolate meteorology indices
+Use ANUSplin software to interpolate meteorology indices
 
 #### 1 Format data
 
