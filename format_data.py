@@ -3,7 +3,8 @@
 import os
 from tqdm import tqdm
 
-this_root = r'C:\Users\ly\Desktop\to_server\to_server\\'
+# this_root = r'C:\Users\ly\Desktop\to_server\to_server\\'
+this_root = r'D:\ANU_interpolation\\'
 
 
 def mkdir(fdir):
@@ -34,8 +35,10 @@ def split_daily_pre(lines,out_dir):
 
     for line in lines:
         line = line.split('\n')[0]
+        val = line[49:56]
         line_split = line.split()
-        sta, lat, lon, height, year, mon, day, _, _, val, _, _, _ = line_split
+        sta, lat, lon, height, year, mon, day, _, _, _, _, _, _ = line_split
+        print val
         if float(val) > 30000:
             continue
         lat = float(lat)/100.
@@ -104,8 +107,8 @@ def split_daily_tmp(lines,out_dir):
 
 
 def main():
-    format_tmp()
-    # format_pre()
+    # format_tmp()
+    format_pre()
     pass
 
 
