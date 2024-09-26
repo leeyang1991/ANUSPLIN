@@ -1,5 +1,4 @@
 # coding = 'utf-8'
-import matplotlib.pyplot as plt
 from lytools import *
 T = Tools()
 
@@ -7,9 +6,7 @@ this_root = 'C:\\Users\\leeya\\PycharmProjects\\ANUSPLIN\\Yangtze\\'
 program_dir = join(this_root,'anusplin_program')
 confdir = join(this_root,'conf\\template')
 
-# Yangtze_DEM_path = join(this_root,'conf\\Yangtzedem0.0625.dem')
 DEM_path = join(this_root,'conf\\chinadem0.0625.dem')
-
 Yangtze_DEM_tif_path = join(this_root,'conf\\Yangtzedem0.0625.tif')
 format_GCM_output_folder = join(this_root,'formated_GCM')
 output_folder = join(this_root,'output')
@@ -212,7 +209,7 @@ ID["EPSG",4326]]'''
 
 def unify_raster(in_tif, out_tif, ndv=-999999):
     '''
-    Unify raster to the extend of global (-180 180 90 -90)
+    Unify raster to the extend of (70 140 10 60)
     '''
     insert_value = ndv
     array, originX, originY, pixelWidth, pixelHeight = ToRaster().raster2array(in_tif)
@@ -272,9 +269,8 @@ def extend_Yangtze_DEM_to_China():
     pass
 
 def main():
-    # extend_Yangtze_DEM_to_China()
-
-    # format_GCM()
+    extend_Yangtze_DEM_to_China()
+    format_GCM()
 
     datelist = []
     for f in os.listdir(format_GCM_output_folder):
